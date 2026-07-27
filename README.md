@@ -3,6 +3,10 @@
 CampusMesh is an AI-powered campus safety and emergency communication platform designed to help students, faculty, and university staff stay connected during emergencies. The application combines emergency alerts, AI assistance, offline-aware navigation, and campus communication into one easy-to-use platform.
 
 ---
+### Bluetooth Mesh Communication
+
+CampusMesh is designed to operate using Bluetooth mesh networking when traditional internet or cellular networks are unavailable. Each device running the app acts as a node that can send, receive, and relay messages to nearby devices using Bluetooth Low Energy (BLE). Instead of requiring a direct connection to the internet, emergency alerts and messages are forwarded from one device to another, allowing information to travel across the campus through multiple connected devices. This decentralized approach increases communication reliability during emergencies such as power outages, natural disasters, or network failures, ensuring that important safety information can still reach students and staff even when conventional communication systems are disrupted.
+
 
 ## 🚀 Live Demo
 
