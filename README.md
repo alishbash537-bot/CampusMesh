@@ -16,7 +16,7 @@ During emergencies, students often face delays in receiving reliable information
 
 ## Live Demo
 
-campus-mesh-roan.vercel.app
+[campus-mesh-roan.vercel.app](https://campus-mesh-j5p7esk70-synapse-code.vercel.app)
 
 ## Features
 
