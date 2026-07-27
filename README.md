@@ -33,3 +33,16 @@ During emergencies, students often face delays in receiving reliable information
 CampusMesh includes an AI assistant designed to help students during emergency situations.
 
 ### AI System Prompt
+## 📸 Screenshots
+
+### Home Screen
+
+![Home Screen](assets/home.png)
+
+### AI Assistant
+
+![AI Assistant](assets/assistant.png)
+
+### Emergency Broadcast
+
+![Emergency Broadcast](assets/emergency.png)
