@@ -1,0 +1,6 @@
+{
+  "name": "CampusMesh",
+  "description": "Decentralized mesh communication, real-time safety alerts, P2P encrypted chat, peer discovery, and emergency AI assistant for university campuses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
