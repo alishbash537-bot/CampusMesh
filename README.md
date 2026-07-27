@@ -1,20 +1,35 @@
+<d# CampusMesh
+
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+<img width="1200" height="475" alt="CampusMesh Banner" src="YOUR_IMAGE_LINK" />
 </div>
 
-# Run and deploy your AI Studio app
+## Overview
 
-This contains everything you need to run your app locally.
+CampusMesh is an emergency communication platform designed for university campuses.
 
-View your app in AI Studio: https://ai.studio/apps/dcc8a061-2ac9-48dc-b515-0ddbc9b933cc
+It allows students to send emergency broadcasts, communicate with peers, receive alerts, and access campus safety features through one application.
 
-## Run Locally
+## Problem It Solves
 
-**Prerequisites:**  Node.js
+During emergencies, students often face delays in receiving reliable information. CampusMesh provides a faster communication channel for students and campus communities.
 
+## Live Demo
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+https://YOUR-VERCEL-LINK.vercel.app
+
+## Features
+
+- Emergency broadcast system
+- Peer-to-peer chat interface
+- Campus alerts
+- Map/location awareness
+- Student profiles
+- Firebase integration
+- AI-powered emergency assistant
+
+## AI Feature
+
+CampusMesh includes an AI assistant designed to help students during emergency situations.
+
+### AI System Prompt
