@@ -32,7 +32,7 @@ export const DirectChatView: React.FC<DirectChatViewProps> = ({
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#f7f9fb] pb-24 relative">
+    <div className="flex flex-col min-h-screen bg-[#f7f9fb] pb-40 relative">
       {/* Mesh Banner */}
       <div className="bg-[#90efef] text-[#006e6e] px-4 py-2 flex items-center justify-center gap-2 sticky top-14 z-30 shadow-xs">
         <span className="material-symbols-outlined text-lg">hub</span>
@@ -58,7 +58,7 @@ export const DirectChatView: React.FC<DirectChatViewProps> = ({
       )}
 
       {/* Chat Messages Canvas */}
-      <main className="flex-1 px-4 py-6 flex flex-col gap-5 max-w-2xl mx-auto w-full">
+      <main className="flex-1 px-4 py-6 pb-24 overflow-y-auto flex flex-col gap-5 max-w-2xl mx-auto w-full">
         {/* Encryption Notice */}
         <div className="self-center bg-[#e6e8ea]/90 backdrop-blur-sm px-4 py-2 rounded-xl max-w-[85%] text-center border border-outline-variant shadow-xs">
           <span className="font-label text-xs text-[#424654] flex items-center justify-center gap-1.5 font-medium">
@@ -196,7 +196,7 @@ export const DirectChatView: React.FC<DirectChatViewProps> = ({
       </main>
 
       {/* Bottom Input Bar */}
-      <footer className="fixed bottom-0 left-0 w-full bg-white border-t border-outline-variant p-3 flex items-center gap-2 z-50">
+      <footer className="fixed bottom-16 left-0 w-full bg-white border-t border-outline-variant p-3 flex items-center gap-2 z-50">
         <div className="flex-1 bg-[#f2f4f6] border border-outline-variant rounded-full px-3 py-1.5 flex items-center gap-2">
           <button className="w-8 h-8 rounded-full flex items-center justify-center text-[#424654] hover:bg-surface-variant transition-colors">
             <span className="material-symbols-outlined text-xl">sentiment_satisfied</span>
