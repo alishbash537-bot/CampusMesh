@@ -36,7 +36,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     contents.push({ role: "user", parts: [{ text: message }] });
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-latest",
+      model: "gemini-flash-latest",
       contents,
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
