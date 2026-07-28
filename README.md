@@ -11,7 +11,7 @@ CampusMesh is designed to operate using Bluetooth mesh networking when tradition
 ## 🚀 Live Demo
 
 **Live Application:**
-[YOUR_VERCEL_URL](https://campus-mesh-roan.vercel.app)
+[campus-mesh-roan.vercel.app](https://campus-mesh-roan.vercel.app/)
 
 **GitHub Repository:**
 [YOUR_GITHUB_REPO_LINK](https://github.com/alishbash537-bot/CampusMesh)
