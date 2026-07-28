@@ -54,4 +54,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         "Offline Protocol Advisory: If you are experiencing a medical or life-threatening emergency, tap 'Broadcast to Mesh Network' or call Campus Safety immediately. Follow glowing green emergency exit signs along main corridors.",
     });
   }
-}
+} 
