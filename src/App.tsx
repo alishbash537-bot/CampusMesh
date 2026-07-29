@@ -10,6 +10,7 @@ import { DiscoveryView } from './components/views/DiscoveryView';
 import { EmergencyBroadcastView } from './components/views/EmergencyBroadcastView';
 import { AIAssistantView } from './components/views/AIAssistantView';
 import { AlertsView } from './components/views/AlertsView';
+import { BluetoothMeshView } from './components/views/BluetoothMeshView';
 import { RegisterView } from './components/views/RegisterView';
 import { LoginView } from './components/views/LoginView';
 import { ProfileView } from './components/views/ProfileView';
@@ -197,8 +198,10 @@ export function App() {
         );
       case 'assistant':
         return <AIAssistantView setActiveView={setActiveView} />;
-      case 'alerts':
+     case 'alerts':
         return <AlertsView setActiveView={setActiveView} customAlerts={customAlerts} />;
+      case 'bluetooth':
+        return <BluetoothMeshView setActiveView={setActiveView} />;
       case 'register':
         return <RegisterView setActiveView={setActiveView} setUser={setUser} />;
       case 'login':

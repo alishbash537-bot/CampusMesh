@@ -6,6 +6,7 @@ export type ActiveView =
   | 'alerts' 
   | 'emergency' 
   | 'assistant' 
+  | 'bluetooth'
   | 'login' 
   | 'register' 
   | 'profile';
@@ -73,4 +74,11 @@ export interface UserProfile {
   year: string;
   avatarUrl: string;
   isLoggedIn: boolean;
+}
+
+export interface BluetoothMeshMessage {
+  id: string;
+  from: 'me' | 'device';
+  text: string;
+  time: string;
 }
