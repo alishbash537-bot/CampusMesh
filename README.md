@@ -3,10 +3,28 @@
 CampusMesh is an AI-powered campus safety and emergency communication platform designed to help students, faculty, and university staff stay connected during emergencies. The application combines emergency alerts, AI assistance, offline-aware navigation, and campus communication into one easy-to-use platform.
 
 ---
-### Bluetooth Mesh Communication
 
-CampusMesh is designed to operate using Bluetooth mesh networking when traditional internet or cellular networks are unavailable. Each device running the app acts as a node that can send, receive, and relay messages to nearby devices using Bluetooth Low Energy (BLE). Instead of requiring a direct connection to the internet, emergency alerts and messages are forwarded from one device to another, allowing information to travel across the campus through multiple connected devices. This decentralized approach increases communication reliability during emergencies such as power outages, natural disasters, or network failures, ensuring that important safety information can still reach students and staff even when conventional communication systems are disrupted.
+### 📶 Bluetooth Communication — Current Implementation vs. Long-Term Vision
 
+CampusMesh includes a **working Bluetooth Direct Connect feature** built on the [Web Bluetooth API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API), which lets the app scan for, connect to, and exchange messages with a real nearby BLE peripheral device — no internet connection required for that link.
+
+It's important to be transparent about what this does and doesn't do today, since "Bluetooth mesh" means something specific:
+
+**✅ What's actually implemented and working:**
+- Real BLE device discovery via the browser's native device picker
+- Real GATT connection to a compatible peripheral (using the Nordic UART Service, a common BLE messaging standard)
+- Real bidirectional message send/receive over that connection
+- A clearly-labeled Simulated Peer mode for previewing the messaging UI without needing physical hardware
+
+**⚠️ Known limitations (platform-level, not implementation bugs):**
+- **Phone-to-phone connection is not possible through a web browser.** Web Bluetooth only allows a page to act as a *client* — it can connect to a peripheral device, but it can never *become* discoverable to another browser tab. Two phones both running CampusMesh in Chrome cannot Bluetooth-connect to each other directly; one side of any real connection must be dedicated BLE hardware (e.g. an ESP32 running compatible firmware — see `/hardware`).
+- **No support in Safari or Firefox, and no support on iOS at all.** Web Bluetooth is Chrome/Edge/Opera only, on Android and Desktop.
+- **This is a direct one-to-one link, not a multi-hop mesh.** True mesh relay (a message hopping from device A → B → C to reach someone out of A's radio range) is not implemented.
+
+**🔭 What true campus-wide mesh would actually require:**
+A genuine offline, multi-hop, campus-wide mesh — the kind that could route around outages the way this README originally described — is a hardware project, not a browser feature. The realistic path is dedicated LoRa-based mesh nodes (in the style of the open-source [Meshtastic](https://meshtastic.org/) project), where each active user carries a small ESP32 + LoRa radio node that talks to nearby nodes over long-range radio, with the phone connecting to its own node over Bluetooth as a gateway. This is tracked as a future hardware initiative — see **Future Improvements** below — and is intentionally out of scope for the current software-only build.
+
+---
 
 ## 🚀 Live Demo
 
@@ -14,7 +32,7 @@ CampusMesh is designed to operate using Bluetooth mesh networking when tradition
 [campus-mesh-roan.vercel.app](https://campus-mesh-roan.vercel.app/)
 
 **GitHub Repository:**
-[YOUR_GITHUB_REPO_LINK](https://github.com/alishbash537-bot/CampusMesh)
+[github.com/alishbash537-bot/CampusMesh](https://github.com/alishbash537-bot/CampusMesh)
 
 ---
 
@@ -29,6 +47,7 @@ CampusMesh addresses this problem by providing:
 * Campus communication
 * Campus navigation support
 * Quick access to safety information
+* Experimental direct Bluetooth device messaging (see Bluetooth section above for scope)
 
 The goal is to improve communication and emergency preparedness within a university campus.
 
@@ -41,6 +60,7 @@ The goal is to improve communication and emergency preparedness within a univers
 * 💬 Campus messaging interface
 * 🚨 Emergency broadcast system
 * 🗺️ Campus map
+* 📶 Bluetooth Direct Connect (Web Bluetooth, single-device link — see limitations above)
 * 👤 Student profile page
 * 🔐 Login and registration pages
 * 📱 Responsive mobile-friendly interface
@@ -69,7 +89,7 @@ The AI maintains conversation history and provides concise, easy-to-read respons
 
 The Gemini AI is instructed using the following system prompt:
 
-> You are CampusMesh AI, an intelligent emergency and campus support assistant running on a decentralized university mesh network. You provide concise, reliable first-aid guidance, campus navigation tips, emergency response protocols, and safety information. Keep responses calm, direct, and easy to read on mobile devices.
+> You are CampusMesh AI, an intelligent emergency and campus support assistant. You provide concise, reliable first-aid guidance, campus navigation tips, emergency response protocols, and safety information. Keep responses calm, direct, and easy to read on mobile devices.
 
 ---
 
@@ -81,6 +101,7 @@ The Gemini AI is instructed using the following system prompt:
 * TypeScript
 * Vite
 * Tailwind CSS
+* Web Bluetooth API
 
 ## Backend
 
@@ -130,7 +151,7 @@ The Gemini AI is instructed using the following system prompt:
 ## Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPO_LINK
+git clone https://github.com/alishbash537-bot/CampusMesh.git
 ```
 
 ## Install dependencies
@@ -169,30 +190,30 @@ Start the development server:
 npm run dev
 ```
 
-Open:
+Open:http://localhost:3000
 
-```
-http://localhost:3000
-```
 
 ---
 
 # 📂 Project Structure
 
-```
 CampusMesh
 │
 ├── assets
+├── hardware
+│ └── esp32-nus-firmware.ino
 ├── src
-│   ├── components
-│   ├── views
-│   ├── firebase.ts
-│   └── App.tsx
+│ ├── components
+│ ├── services
+│ │ └── bluetoothService.ts
+│ ├── views
+│ ├── firebase.ts
+│ └── App.tsx
 │
 ├── server.ts
 ├── package.json
 └── README.md
-```
+
 
 ---
 
@@ -210,8 +231,9 @@ CampusMesh
 * GPS-based emergency routing
 * Voice interaction with AI assistant
 * Push notifications
-* Offline mesh synchronization
 * Multi-language support
+* **Native mobile app (Capacitor)** to unlock phone-to-phone Bluetooth via Android's Nearby Connections API, closing the gap that Web Bluetooth can't
+* **Dedicated hardware mesh layer** using LoRa radio nodes (Meshtastic-style architecture) for genuine long-range, multi-hop, off-grid campus messaging
 
 ---
 
