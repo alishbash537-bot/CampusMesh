@@ -94,7 +94,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ setActiveView 
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#f7f9fb] pb-32">
+    <div className="flex flex-col min-h-screen bg-[#f7f9fb] pb-40">
       <main className="flex-1 px-4 py-6 max-w-2xl mx-auto w-full space-y-6">
         {/* Welcome Branding */}
         <div className="flex flex-col items-center text-center py-4">
@@ -202,7 +202,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ setActiveView 
       </main>
 
       {/* Floating Bottom Input Bar */}
-      <div className="fixed bottom-0 left-0 w-full bg-[#f7f9fb]/95 backdrop-blur-md pt-2 pb-6 px-4 border-t border-outline-variant z-50">
+      <div className="fixed bottom-16 left-0 w-full bg-[#f7f9fb]/95 backdrop-blur-md pt-2 pb-6 px-4 border-t border-outline-variant z-50">
         <div className="max-w-2xl mx-auto flex items-center gap-2 bg-white border border-outline-variant rounded-2xl p-2 shadow-sm focus-within:ring-2 focus-within:ring-[#006a6a]/30 transition-all">
           <button className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-surface-container-low transition-colors text-[#424654]">
             <span className="material-symbols-outlined text-xl">add_circle</span>

@@ -8,11 +8,6 @@ interface BottomNavProps {
 
 export const BottomNav: React.FC<BottomNavProps> = ({ activeView, setActiveView }) => {
 
-  // Show bottom navigation ONLY on home screen
-  if (activeView !== 'home') {
-    return null;
-  }
-
   const isHome = activeView === 'home';
 
   return (
